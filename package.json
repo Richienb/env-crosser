@@ -1,6 +1,6 @@
 {
     "name": "env-crosser",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Return a specific value depending on the environment.",
     "repository": "https://github.com/Richienb/env-crosser.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
