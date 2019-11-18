@@ -1,7 +1,10 @@
 "use strict"
 
-module.exports = (input, { postfix = "rainbows" } = {}) => {
-    if (typeof input !== "string") throw new TypeError(`Expected a string, got ${typeof input}`)
+const { isBrowser, isWebWorker, isNode } = require("browser-or-node")
 
-    return `${input} & ${postfix}`
+module.exports = ({ browser, worker, node, fallback }) => {
+    if (isBrowser) return browser || fallback
+    if (isWebWorker) return worker || fallback
+    if (isNode) return node || fallback
+    return fallback
 }

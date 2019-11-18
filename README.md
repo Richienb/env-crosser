@@ -1,41 +1,57 @@
-# The module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# Env crosser [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/env-crosser/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/env-crosser)
 
-My awesome module.
+Return a specific value depending on the environment.
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/env-crosser.png)](https://npmjs.com/package/env-crosser)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install env-crosser
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const envCrosser = require("env-crosser");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+envCrosser({
+    browser: "Browser!",
+    worker: "Web Worker!",
+    node: "NodeJS!",
+    fallback: "???"
+})
+//=> "NodeJS!" (When using NodeJS)
 ```
 
 ## API
 
-### theModule(input, options?)
+### envCrosser(values)
 
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
+#### values
 
 Type: `object`
 
-##### postfix
+##### browser
 
-Type: `string`\
-Default: `rainbows`
+Type: `any`
 
-Lorem ipsum.
+The value to return in a browser.
+
+##### worker
+
+Type: `any`
+
+The value to return in a web worker.
+
+##### node
+
+Type: `any`
+
+The value to return in NodeJS.
+
+##### fallback
+
+Type: `any`
+
+The value to fall back to if all the other checks fail or a corresponding value isn't provided.

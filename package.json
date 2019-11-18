@@ -1,24 +1,32 @@
 {
-    "name": "the-module",
+    "name": "env-crosser",
     "version": "0.0.0",
-    "description": "My awesome module.",
-    "repository": "https://github.com/Richienb/the-module.git",
+    "description": "Return a specific value depending on the environment.",
+    "repository": "https://github.com/Richienb/env-crosser.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
     "license": "MIT",
     "main": "index.js",
     "files": [
         "index.js",
-        "index.d.ts"
+        "index.d.ts",
+        "externals.d.ts"
     ],
     "engines": {
-        "node": ">=8"
+        "node": ">=6"
     },
     "scripts": {
         "lint": "xo",
         "test": "yarn lint && ava"
     },
-    "keywords": [],
-    "dependencies": {},
+    "keywords": [
+        "env",
+        "browser",
+        "node",
+        "env"
+    ],
+    "dependencies": {
+        "browser-or-node": "^1.2.1"
+    },
     "devDependencies": {
         "ava": "^2.1.0",
         "eslint-config-richienb": "^0.2.2",

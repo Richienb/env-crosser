@@ -1,14 +1,43 @@
+import { ValueOf } from "./externals"
+
+declare interface EnvValues {
+    /**
+     * The value to return in a browser.
+    */
+    browser?: any,
+
+    /**
+    * The value to return in a web worker.
+    */
+    worker?: any,
+
+    /**
+    * The value to return in NodeJS.
+    */
+    node?: any,
+
+    /**
+    * The value to fall back to if all the other checks fail or a corresponding value isn't provided.
+    */
+    fallback?: any
+}
+
 /**
- * My awesome module.
- * @param input Lorem ipsum.
- * @param postfix Lorem ipsum.
+ * Return a specific value depending on the environment.
+ * @param values The values to return.
  * @example
  * ```
- * const theModule = require("the-module");
- * theModule("unicorns");
- * //=> 'unicorns & rainbows'
+ * const envCrosser = require("env-crosser");
+ *
+ * envCrosser({
+ *     browser: "Browser!",
+ *     worker: "Web Worker!",
+ *     node: "NodeJS!",
+ *     fallback: "???"
+ * })
+ * //=> "NodeJS!" (When using NodeJS)
  * ```
 */
-declare function theModule(input: string, { postfix }: { postfix?: string }): string;
+declare function envCrosser<T extends EnvValues>(values: T): ValueOf<T>;
 
-export = theModule;
+export = envCrosser;
